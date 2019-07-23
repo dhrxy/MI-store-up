@@ -1,0 +1,838 @@
+@import "./head.less";
+
+//页面宽度
+@page-width: 1226px;
+
+
+
+#nav{
+    position: relative;
+    .center(0);
+    width: @page-width;
+    //height: 100px;
+    //border: 1px solid red;
+    .logo{
+        float:left;
+        width: 234px;
+        //height: 55px;
+        padding: 22.5px 0;
+        
+        a:nth-child(1){
+            float: left;
+            width: 55px;
+            height: 55px;
+            background:#FF6700 url(../img/mi-logo.png) center;
+            text-indent:-100000px;
+        }
+        a:nth-child(2){
+            float: right;
+            margin-top:-5px;
+           
+            width: 163px;
+            height: 66px;
+            background:white url(../img/gandong.png) center;
+            text-indent:-100000px;
+        }
+
+
+    }
+
+    //文字导航
+    .list{
+        // position: relative;
+        float: left;
+        .list-item{
+            float: left;
+            padding:40px 9px;
+            cursor: pointer;
+        }
+
+        // .list-item:hover ~ .nav-menu{
+        //     height: 230px;
+        //     border-top:1px solid rgb(235, 232, 232);
+
+
+        // }
+        .list-item:hover{
+            color:#FF6700;
+        }
+
+        .list-item:hover .list-content{
+            display: block;
+            //height: 200px;
+            opacity: 1;
+            z-index: 9;
+        }
+
+        .list-content{
+            z-index: 0;
+            opacity: 0;
+            display: none;
+            overflow: hidden;
+            position: absolute;
+            top:100px;
+            left:0;
+            height: 200px;
+            width:100%;
+            transition: height 600ms cubic-bezier(.3,1.23,.8,.8);
+            z-index: 33;
+            opacity: 0;
+            li{
+                position: relative;
+                float: left;
+                width: 200px;
+                height:200px;
+                padding: 35px 12px 0;
+
+                &:first ~ li::before{
+                    position: absolute;
+                    left: 0;
+                    top: 35px;
+                    width: 1px;
+                    height: 100px;
+                    content: "";
+                    background: #353434;
+                }
+
+
+                //title
+                .title{
+                    font-size:12px;
+                    text-align: center;
+                    padding: 2px 0px;
+                }
+
+                //价格
+                .price{
+                    font-size:12px;
+                    text-align: center;
+                    color:#FF6700;
+
+                }
+
+
+                //标识
+                .flag{
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    width: 100%;
+                    text-align:center;
+                    span{
+                        padding:2px 20px;
+                        border: 1px solid #FF6700;
+                        font-size: 12px;
+                        color:#FF6700;
+
+                    }
+                }
+            }
+
+
+        }
+
+
+        
+  
+
+    }
+
+    //搜索
+    .search{
+        position: relative;
+        float: right;
+        width: 295px;
+        //height: 48px;
+        padding:20px 0;
+        input{
+            float: left;
+            width:calc(295px - 48px);
+            height: 48px;
+            outline: none;
+            border:1px solid #FF6700;
+            font-size:16px;
+            text-indent: 8px;
+        }
+
+
+
+        input:focus ~ .search-info{
+            display: none;
+        }
+
+        input:focus ~ .default{
+            display: block;
+        }
+
+
+
+
+        .search-btn{
+            float: right;
+            width: 48px;
+            height: 48px;
+            border:1px solid #FF6700;
+            border-left:none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 48px;
+            color: #666;
+
+        }
+        .search-btn:hover{
+            background: #FF6700;
+            color: #fff;
+        }
+
+        //input里面的默认搜索
+        .search-info{
+            position: absolute;
+            right:55px;
+            top: 35px;
+            font-size:12px;
+            a{
+                
+                padding: 2px 7px;
+                background: rgb(243, 241, 241);
+                color:#666;
+            }
+            a:hover{
+                background: #FF6700;
+                color: #fff;
+            }
+        }
+        .default{
+            z-index: 33;
+            display: none;
+            position: absolute;
+            top:67px;
+            border:1px solid red;
+            background: #fff;
+
+            width: calc(295px - 48px);
+            font-size:12px;
+
+            & > div{
+                
+                overflow: hidden;
+                cursor: pointer;
+                &:hover{
+                    background: #ddd;
+                }
+            }
+            .goods, .num{
+                padding: 5px 10px;
+
+            }
+            .goods{
+                float: left;
+            }
+            .num{
+                float: right;
+                color:#aaa;
+            }
+            
+        }
+
+
+
+
+
+    }
+
+
+
+    .clearfix;
+}
+
+
+.nav-menu{
+    position: absolute;
+    top: 100px;
+    left: calc((1920px - 1226px)/ -2);
+    overflow: hidden;
+    //float: left;
+    width:1920px;
+    height: 0px;
+    color: #b0b0b0;
+    font-size: 12px;
+    background:white;
+    border-top:1px solid rgb(235, 232, 232);
+    box-shadow: 0px 2px 4px rgb(177, 175, 175);
+    transition: 300ms cubic-bezier(.3,1.23,.8,.8);
+    opacity: 0;
+    z-index: 2;
+}
+
+
+
+
+
+ 
+.list:hover {
+    .nav-menu{
+        height: 200px;
+        opacity: 1;
+        }
+       
+}
+
+#banner{
+    z-index: 1;
+    .center(0);
+    overflow: hidden;
+
+    position: relative;
+    width:@page-width;
+    height: 461px;
+    //border:1px solid red;
+    li {
+        list-style: none;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .bg-pic{
+        position: absolute;
+        float:left;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 7356px;
+        height: 460px;
+        li{
+            float: left;
+            width: 1226px;
+            height: 460px;
+            //display: inline-block;
+            list-style: none;
+            img{
+            width: 1226px;
+            height: 460px;
+
+            }
+            
+            
+        }
+
+        
+        
+
+        //background: url(../img/K20.jpg) no-repeat center/cover;
+    }
+
+    
+
+    .left{
+        position: absolute;
+        z-index: 2;
+        top:0;
+        left:0;
+        width: 235px;
+        height: 460px;
+        padding:22px 0;
+        background: rgb(126, 123, 123);
+        
+        .left-item{
+            height:42px;
+            line-height:42px;
+            padding:0 28px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #fff;
+
+            &:hover{
+                background: #FF6700;
+            }
+
+            &:hover >.goods-list{
+                display: block;
+            }
+
+            .goods-list{
+                display: none;
+                position: absolute;
+                left:235px;
+                top:0;
+                height: 100%;
+                background: #fff;
+                width: calc(@page-width - 235px);
+                box-shadow: 2px 2px 3px rgb(126, 123, 123);
+
+
+                ul{
+                    float: left;
+                    width: 247px;
+                    height: 461px;
+                    //border:1px solid red;
+
+                    li{
+                        margin: 29px 20px;
+                        a{
+                            display: block;
+                            img{
+                                width:40px;
+                                height: 40px;
+                                vertical-align: middle;
+                            }
+                            span{
+                                color: #666;
+                                padding-left: 10px;
+                                vertical-align: middle;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            i{
+                float: right;
+                color: #b0b0b0;
+                font-size: 16px;
+            }
+
+        }
+
+
+    }
+
+    
+
+
+    .right{
+        position: relative;
+        //overflow: hidden;
+        float:right;
+        width: calc(@page-width - 235px);
+        height: 100%;
+        //background: red;
+        
+
+        .btn{
+            position: absolute;
+            top: calc((461px / 2) - (70px / 2));
+            width:40px;
+            height: 70px;
+            //background: #666;
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+            font-size:20px;
+            cursor: pointer;
+
+            &:hover{
+                background: #666;
+            }
+            
+
+
+        }
+        .prev{
+            border-radius:0 5px 5px 0;
+        }
+        .next{
+            right: 0;
+            border-radius:5px 0 0 5px;
+        }
+        //tab按钮
+
+        .tab {
+			position: absolute;
+            bottom: 20px;
+            right: 20px;
+			//left: 50%;
+			margin-left: -100px;
+			width: 200px;
+			height: 30px;
+			padding-left: 10px;
+			//background: rgba(0, 0, 0, .2);
+			border-radius: 15px;
+			transition: .5s;
+			transform: scale(.8);
+		}
+
+		.tab:hover {
+			//background: rgba(0, 0, 0, .5);
+			transform: scale(1.2);
+		}
+
+		.tab li {
+			width: 20px;
+			height: 20px;
+			float: left;
+			background: rgb(36, 33, 33);
+			border-radius: 50%;
+			margin: 5px 10px 0 0;
+			opacity: .35;
+			cursor: pointer;
+		}
+
+		.tab li.on {
+			position: absolute;
+            top: 0px;
+            left:10px;
+			background: #f60;
+			opacity: 1;
+			z-index: 99;
+		}
+
+        //tab按钮
+        // .tab{
+        //     position: absolute;
+        //     bottom: 20px;
+        //     right: 20px;
+        //     width: 200px;
+        //     height: 30px;
+        //     //  background: #353434;
+
+        //     li{
+        //         float:left;
+        //         width:10px;
+        //         height:10px;
+        //         border:2px solid rgba(37, 34, 34, 0.5);
+        //         background:rgb(126, 123, 123,.5);
+
+        //         border-radius: 50%;
+        //         margin-left: 10px;
+
+                
+
+                
+
+        //     }
+        //     .active{
+        //         background: rgba(100, 27, 27, 0.8);
+        //         border-color:rgba(185, 126, 126, 0.5);
+        //     }
+        // }
+    }
+
+}
+
+.shortcut{
+    position: relative;
+    .center(16px);
+    width:@page-width;
+    height: 170px;
+    // background:#5F5750;
+
+    .right{
+        float:left;
+        position: absolute;
+
+   
+
+    .imgbox1{
+        float:left;
+        position: absolute;
+        // top:0px;
+        left:256px;
+        width:310px;
+        height:160px;
+        background:url(../img/kuaijie1.jpg) no-repeat center/cover;
+        z-index: 3;
+        &:hover{
+            box-shadow: 2px 2px 20px rgb(116, 114, 114);
+        }
+
+
+    }
+
+    .imgbox2{
+        float:left;
+        position: absolute;
+        // top:5px;
+        left:586px;
+        width:310px;
+        height:160px;
+        background:url(../img/kuaijie2.jpg) no-repeat center/cover;
+        z-index: 3;
+        &:hover{
+            box-shadow: 2px 2px 20px rgb(116, 114, 114);
+        }
+
+
+    }
+
+    .imgbox3{
+        float:left;
+        position: absolute;
+        // top:5px;
+        left:916px;
+        width:310px;
+        height:160px;
+        background:url(../img/kuaijie3.jpg) no-repeat center/cover;
+        z-index: 3;
+        &:hover{
+            box-shadow: 2px 2px 20px rgb(116, 114, 114);
+        }
+
+
+    }
+}
+
+    .left{
+        float:left;
+        position: absolute;
+        // top:5px;
+        // left: 10px;
+        width:235px;
+        height:160px;
+        background: #FF6700;
+        z-index: 3;
+
+         //右边框
+        .r-b{
+            &::before{
+                position: absolute;
+                right:0;
+                top:10px;
+                content: "";
+                width: 1px;
+                height: 70px;
+                background: #665e57;
+
+            }
+        }
+
+        // 顶边框
+        .t-b{
+            &::after{
+                position: absolute;
+                top:0;
+                left:10px;
+                content: "";
+                width: 57px;
+                height: 1px;
+                background: #665e57;
+
+            }
+        }
+
+        ul{
+            height: 100%;
+
+            li{
+                float:left;
+                position: relative;
+                width: calc(235px / 3);
+                height: 50%;
+                background: #353434;
+                color: #cfcdcb;
+                font-size:12px;
+                text-align: center;
+                a{
+                    display: block;
+                    padding-top: 16px;
+
+                }
+
+                .iconfont{
+                    font-size:30px;
+                    
+                }
+                &:hover{
+                    color:white;
+
+                }
+
+    
+            }
+        }
+
+       
+
+        
+    }
+    
+}
+
+.Partition{
+    width: 100%;
+    height: 180px;
+    .Partitionimg1{
+        .center(0);
+       
+        width: @page-width;
+        height:150px;
+        background:url(../img/fenge.jpg) no-repeat center/cover;
+
+    }
+    .Partitionimg2{
+        .center(0);
+       
+        width: @page-width;
+        height:150px;
+        background:url(../img/fenge2.jpg) no-repeat center/cover;
+
+    }
+    .Partitionimg3{
+        .center(0);
+       
+        width: @page-width;
+        height:150px;
+        background:url(../img/fenge3.jpg) no-repeat center/cover;
+
+    }
+
+}
+
+
+.productALL{
+    width: 100%;
+    height: 800px;
+    margin-bottom: 30px;
+    background:#F5F5F5;
+
+    .productlist{
+        .center(0);
+           
+        width: @page-width;
+        height: 400px;
+        background:#F5F5F5;
+
+        .producttitle{
+            .center(0);
+           
+            width: @page-width;
+            height: 80px;
+            //background:rgb(119, 54, 54);
+
+            .producttitleleft{
+                float:left;
+
+                span{
+                    display: block;
+                    width:50px;
+                    padding-top: 30px;
+                    font-size:22px;
+                    //color: #FF6700;
+                }
+            }
+
+          .producttitleright{
+              float:right;
+              padding-top:30px;
+                a{
+                    display: block;
+                    float:right;
+                    .iconfont{
+                        float:right;
+                        padding-left: 5px;
+                        font-size:22px;
+
+                    }
+                    &:hover{
+                        color: #FF6700;
+                    }
+
+                }
+          }
+
+            
+
+        }
+    
+        .product{
+            position: relative;
+            .center(0);
+           
+            width: @page-width;
+            height:100%;
+    
+            .boxproductbig{
+                position: absolute;
+                top:10px;
+                left:0px;
+                width: 238px;
+                height: 620px;
+                //background-color: #FF6700;
+                background: url(../img/heisha2.jpg) no-repeat center/cover;
+                &:hover{
+                    top:-2px;
+                    box-shadow: 2px 2px 20px rgb(146, 135, 135);
+
+                }
+    
+            }
+
+            .boxproductsmall1{
+                float: right;
+                width: 1000px;
+                height: 300px;
+                //background-color: #FF6700;
+
+
+                .boxproductsmall{
+                    float: right;
+                    position: relative;
+                    // position: absolute;
+                    // top:0px;
+                    // left:0px;
+                    margin-left: 9px;
+                    margin-top:9px;
+                    width: 238px;
+                    height: 300px;
+                    background-color: white;
+                    //background: url(../img/heisha2.jpg) no-repeat center/cover;
+                    &:hover{
+                        top:-2px;
+                        box-shadow: 2px 2px 20px rgb(146, 135, 135);
+    
+                    }
+                img{
+                    width:150px;
+                    height:150px;
+                    margin: 40px;
+                }
+
+                 //title
+                .title{
+                    font-size:15px;
+                    text-align: center;
+                    padding: 2px 0px;
+                }
+
+                //价格
+                .price{
+                    font-size:12px;
+                    text-align: center;
+                    color:#FF6700;
+
+                }
+
+
+                //标识
+                .flag{
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    width: 100%;
+                    text-align:center;
+                    span{
+                        padding:2px 20px;
+                        border: 1px solid #FF6700;
+                        font-size: 12px;
+                        color:#FF6700;
+
+                    }
+                }
+        
+                }
+            }
+           
+        }
+    
+    
+    }
+
+}
+
+
+
+
+

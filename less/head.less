@@ -1,0 +1,221 @@
+@import (css) "../css/reset.css";
+@page-width: 1226px;
+
+//清除浮动影响
+.clearfix{
+    &::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+}
+
+//水平居中 可调整垂直数据
+.center(@a){
+    margin: @a auto;
+}
+
+//绝对居中
+.absolute-center{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+//测试用
+.border-test{
+    border:1px solid red;
+}
+
+// .right-border(@height,@color){
+    
+//         display: inline-block;
+        
+        
+//         height: @height;
+//         border-right: 2px solid @color;
+    
+    
+// }
+
+//header start
+#header{
+    width: 100%;
+    height: 40px;
+    background:#333;
+
+    //box
+    .box{
+        .center(0);
+       
+        width: @page-width;
+        height:100%;
+        //.border-test;
+        // 导航栏左侧布局
+            .nav-left{
+                float: left;
+            //.right-border(15px, green);
+            ul li{
+                float: left;
+                color: #fff;
+                
+                a{
+                    display: inline-block;
+                    padding: 12px 6px; 
+                    font-size: 12px;
+                    color: #b0b0b0;;
+                    
+
+                }
+
+               &:nth-child(1) a{
+                   padding-left:0;
+               }
+
+                span{
+                    display: inline-block;
+                    padding: 2px 0 0 0;
+                    height: 10px;
+                    border-right: 2px solid #424242;
+                }
+                &:hover{
+                    a{
+                     color: #fdfdfd;  
+                    }
+                }
+
+                
+            }
+        }
+
+        //导航栏右侧布局
+        .nav-right{
+            float: right;
+        //.right-border(15px, green);
+        ul li{
+            float: right;
+            color: #fff;
+
+            .shopcar{
+                position: relative;
+                width: 132px;
+                height: 40px;
+                margin-left: 20px;
+                // padding:0px 20px;
+                background-color:#424242;
+                //.border-test;
+                .iconfont{
+                    padding:0px 0px 0px 20px;
+                }
+
+                a{
+                    display: inline-block;
+                    padding: 11px 6px; 
+                    font-size: 12px;
+                    color: #b0b0b0;
+                }
+
+                .shopcarlist{
+                    overflow: hidden;
+                    position: absolute;
+                    top: 40px;
+                    right: 0px;
+                    //display: none;
+                    width: 300px;
+                    height: 0px;
+                    color: #b0b0b0;
+                    font-size: 12px;
+                    background:white;
+                    box-shadow: 0px 2px 2px rgb(107, 105, 105);
+                    transition: 600ms cubic-bezier(.3,1.23,.8,.8);
+                    opacity: 0;
+                    z-index: 66666;
+                    
+                    
+                    div{
+                        
+                        // width:300px;
+                        // height: 100px;
+                        //display: none;
+                        text-align: center;
+                        line-height: 100px;
+                        transition: 1s linear;
+                        //padding: 40px 0 0 50px;
+                    
+                        
+
+                    }
+                }
+                &:hover{
+                   
+                    background:white;
+                    a{
+                        color:#FF6700;
+
+                    }
+                    .shopcarlist{
+                        height: 100px;
+                        opacity: 1;
+                        //display:block;
+                        div{
+                            display:block;
+                        }
+                    }
+                }
+
+               
+
+
+            }
+
+           &:hover{
+               a{
+                color: #fdfdfd;  
+               }
+           }
+
+            // .shopcar:hover{
+            //     background:white;
+            //     .shopcarlist{
+            //         height: 100px;
+            //         display:block;
+            //     }
+            // }
+            
+            a{
+                display: inline-block;
+                padding: 12px 6px; 
+                font-size: 12px;
+                color: #b0b0b0;
+
+               
+                
+
+            }
+
+           &:nth-child(1) a{
+               padding-right:0;
+           }
+
+            span{
+                display: inline-block;
+                padding: 2px 0 0 0;
+                height: 10px;
+                border-right: 2px solid #424242;
+            }
+
+            // .iconfont icon-gouwucheman{
+            //     float: right; 
+               
+
+            // }
+            
+        }
+    }
+    }
+}
+
